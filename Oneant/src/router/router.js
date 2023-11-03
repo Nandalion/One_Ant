@@ -1,10 +1,12 @@
+import Dashboard from "../components/Dashboard"
 import Login from "../components/Login"
 
 const { default: Splashscreen } = require("../components/Splashscreen")
 
 const screenNames={
     splashscreen:'splashscreen',
-    Login:'Login'
+    Login:'Login',
+    DashBoard:'DashBoard'
 }
 
 const appRoutes=[
@@ -15,7 +17,13 @@ const appRoutes=[
     {
         name:screenNames.Login,
         components:Login
+    },
+    {
+        name:screenNames.DashBoard,
+        components:Dashboard
     }
+    
+
 ]
 
 export {appRoutes,screenNames}

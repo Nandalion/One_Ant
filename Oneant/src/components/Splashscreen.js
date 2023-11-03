@@ -5,15 +5,26 @@ import {
   TouchableOpacity
 } from 'react-native'
 import React, { useEffect } from 'react'
-import * as images from '../assests/images'
+import auth from '@react-native-firebase/auth'
+// import * as images from '../assests/images'
 
-// import { screenNames } from '../router/router'
+import { screenNames } from '../router/router'
 
 
 const {width, height} = Dimensions.get('screen')
 
 const Splashscreen = ({navigation}) => {
 
+    useEffect(()=>{
+      auth().onAuthStateChanged(user=>{
+        if(!user){
+          navigation.replace(screenNames.splashscreen)
+        }
+        else{
+          navigation.replace(screenNames.DashBoard)
+        }
+      })
+    })
 
 
   return (
@@ -21,18 +32,18 @@ const Splashscreen = ({navigation}) => {
       <SafeAreaView style={styles.container}>
 
         <View >
-          <ImageBackground source={images.bg} style={{ width, height, position: 'absolute' }} />
+          {/* <ImageBackground source={images.bg} style={{ width, height, position: 'absolute' }} /> */}
           <View style={{ marginTop: '100%', marginHorizontal: '5%' }}>
             <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              <Image
+              {/* <Image
                 style={{}}
                 source={images.Subtract}
-              />
-              <Text style={styles.text1}>ant</Text>
-              <Text style={{ borderWidth: 1, borderRadius: 10, width: '35%', color: '#FFFf', textAlign: 'center', marginLeft: 5, backgroundColor: 'gray', fontSize: 15 }}>FOR SELLERS</Text>
+              /> */}
+              {/* <Text style={styles.text1}>ant</Text> */}
+              {/* <Text style={{ borderWidth: 1, borderRadius: 10, width: '35%', color: '#FFFf', textAlign: 'center', marginLeft: 5, backgroundColor: 'gray', fontSize: 15 }}>FOR SELLERS</Text> */}
             </View>
             <View style={{ width: '100%' }}>
-              <Text style={{ color: 'white', marginVertical: '5%' }}>sign in and begin efficiently managing your business while on the move!</Text>
+              {/* <Text style={{ color: 'white', marginVertical: '5%' }}>sign in and begin efficiently managing your business while on the move!</Text> */}
               <View style={styles.loginbuttons}>
 
                 <TouchableOpacity style={styles.phonenumber} onPress={()=>navigation.navigate('Login')}>
@@ -41,12 +52,12 @@ const Splashscreen = ({navigation}) => {
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: '10%' }}>
                   <View style={{ borderBottomWidth: 1, width: '45%' }}></View>
-                  <Text style={{ borderWidth: 1, borderRadius: 10, width: '10%', textAlign: 'center', color: '#ffff', backgroundColor: 'grey' }}>Or</Text>
+                  {/* <Text style={{ borderWidth: 1, borderRadius: 10, width: '10%', textAlign: 'center', color: '#ffff', backgroundColor: 'grey' }}>Or</Text> */}
                   <View style={{ borderBottomWidth: 1, width: '45%' }}></View>
                 </View>
 
 
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <View style={styles.Authbutton}>
                     <Image
                       style={{}}
@@ -55,10 +66,10 @@ const Splashscreen = ({navigation}) => {
                     <Text style={{ color: '#ffff', marginLeft: '20%' }}  >Continue With Google</Text>
 
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
 
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                   <View style={styles.Authbutton}>
                     <Image
                       style={{}}
@@ -67,7 +78,7 @@ const Splashscreen = ({navigation}) => {
                     <Text style={{ color: '#ffff', marginLeft: '20%' }}>Continue With facebook</Text>
 
                   </View>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
               </View>
             </View>
