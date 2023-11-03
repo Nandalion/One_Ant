@@ -6,7 +6,7 @@ import Approuter from './src/router/Approuter'
 
 const App = () => {
   return(
-   <SafeAreaView>
+   <SafeAreaView style={{flex:1}}>
       <Approuter/>
    </SafeAreaView>
   )

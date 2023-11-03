@@ -8,12 +8,13 @@ const Stack = createNativeStackNavigator()
 
 export default function Approuter() {
     return (
-        <View>
+        
             <NavigationContainer>
-                <Stack.Navigator screenOptions={{ header: () => null }}>
+                <Stack.Navigator screenOptions={{ header: () => null }} >
+                    {/* <Text>Work</Text> */}
                    {appRoutes.map((item)=><Stack.Screen name={item.name} key={item.name} component={item.components}/>)}
                 </Stack.Navigator>
             </NavigationContainer>
-        </View>
+     
     )
 }

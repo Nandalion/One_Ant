@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "845601842250",
+    "project_id": "oneant-client-apps",
+    "storage_bucket": "oneant-client-apps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:845601842250:android:0693c63eb614ae37ef72b3",
+        "android_client_info": {
+          "package_name": "com.oneant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "845601842250-g78kbea3gvd3novpnsgkc6d6r6iskstt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEPGLx5b9FLiAUCSHwZQBlq78VsVbBlvo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "845601842250-g78kbea3gvd3novpnsgkc6d6r6iskstt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

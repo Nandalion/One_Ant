@@ -1,13 +1,20 @@
+import Login from "../components/Login"
+
 const { default: Splashscreen } = require("../components/Splashscreen")
 
 const screenNames={
-    splashscreen:'splashscreen'
+    splashscreen:'splashscreen',
+    Login:'Login'
 }
 
 const appRoutes=[
     {
-        name:'splashscreen',
+        name:screenNames.splashscreen,
         components:Splashscreen
+    },
+    {
+        name:screenNames.Login,
+        components:Login
     }
 ]
 
