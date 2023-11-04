@@ -2,7 +2,7 @@ import {
     StyleSheet, Text, View, TouchableOpacity, ImageBackground, Dimensions,
     SafeAreaView, TextInput
 } from 'react-native'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 // import * as images from '../assests/images'
 import PhoneInput from 'react-native-phone-number-input';
 import auth from '@react-native-firebase/auth'

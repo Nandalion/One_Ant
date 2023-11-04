@@ -4,7 +4,7 @@ import {
   SafeAreaView, Dimensions,Image,
   TouchableOpacity
 } from 'react-native'
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import auth from '@react-native-firebase/auth'
 // import * as images from '../assests/images'
 
@@ -15,16 +15,23 @@ const {width, height} = Dimensions.get('screen')
 
 const Splashscreen = ({navigation}) => {
 
-    useEffect(()=>{
-      auth().onAuthStateChanged(user=>{
-        if(!user){
-          navigation.replace(screenNames.splashscreen)
-        }
-        else{
-          navigation.replace(screenNames.DashBoard)
-        }
-      })
-    })
+  const [isNavigated, setIsNavigated] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth().onAuthStateChanged(user => {
+      if (!user && !isNavigated) {
+        setIsNavigated(true);
+        navigation.navigate(screenNames.splashscreen);
+      } else if (user && !isNavigated) {
+        setIsNavigated(true);
+        navigation.navigate(screenNames.DashBoard);
+      }
+    });
+
+    return () => {
+      unsubscribe(); // Clean up the listener when the component unmounts
+    };
+  }, [isNavigated, navigation]);
 
 
   return (
