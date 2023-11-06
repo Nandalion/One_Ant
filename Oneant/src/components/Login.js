@@ -59,7 +59,7 @@ const Login = ({navigation}) => {
         try {
             
             const response = await verificationId.confirm(otp);
-            navigation.replace(screenNames.DashBoard)
+            navigation.replace(screenNames.Newuser)
             console.log(response,'verified')
         } catch (e) {
             console.log(e)

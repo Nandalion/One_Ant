@@ -24,7 +24,7 @@ const Splashscreen = ({navigation}) => {
         navigation.navigate(screenNames.splashscreen);
       } else if (user && !isNavigated) {
         setIsNavigated(true);
-        navigation.navigate(screenNames.DashBoard);
+        navigation.navigate(screenNames.Newuser);
       }
     });
 

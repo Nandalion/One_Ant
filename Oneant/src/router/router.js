@@ -1,12 +1,17 @@
+
 import Dashboard from "../components/Dashboard"
 import Login from "../components/Login"
+import Newuser from "../components/Newuser"
+import BottomNavg from "../Bottomtab/BottomNavg"
 
 const { default: Splashscreen } = require("../components/Splashscreen")
 
 const screenNames={
     splashscreen:'splashscreen',
     Login:'Login',
-    DashBoard:'DashBoard'
+    Newuser:'Newuser',
+    Dashboard:'Dashboard',
+    BottomNavg:'BottomNavg'
 }
 
 const appRoutes=[
@@ -19,8 +24,16 @@ const appRoutes=[
         components:Login
     },
     {
-        name:screenNames.DashBoard,
+        name:screenNames.Newuser,
+        components:Newuser
+    },
+    {
+        name:screenNames.Dashboard,
         components:Dashboard
+    },
+    {
+        name:screenNames.BottomNavg,
+        components:BottomNavg
     }
     
 
