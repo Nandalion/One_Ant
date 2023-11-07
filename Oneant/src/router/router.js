@@ -3,6 +3,8 @@ import Dashboard from "../components/Dashboard"
 import Login from "../components/Login"
 import Newuser from "../components/Newuser"
 import BottomNavg from "../Bottomtab/BottomNavg"
+import Googlesign from "../components/Googlesign"
+
 
 const { default: Splashscreen } = require("../components/Splashscreen")
 
@@ -11,7 +13,8 @@ const screenNames={
     Login:'Login',
     Newuser:'Newuser',
     Dashboard:'Dashboard',
-    BottomNavg:'BottomNavg'
+    BottomNavg:'BottomNavg',
+    Googlesign:'Googlesign'
 }
 
 const appRoutes=[
@@ -34,6 +37,10 @@ const appRoutes=[
     {
         name:screenNames.BottomNavg,
         components:BottomNavg
+    },
+    {
+        name:screenNames.Googlesign,
+        components:Googlesign
     }
     
 

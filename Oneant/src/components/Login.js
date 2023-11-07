@@ -3,7 +3,7 @@ import {
     SafeAreaView, TextInput
 } from 'react-native'
 import React, { useCallback, useRef, useState } from 'react'
-// import * as images from '../assests/images'
+import * as images from '../assests/images'
 import PhoneInput from 'react-native-phone-number-input';
 import auth from '@react-native-firebase/auth'
 import { screenNames } from '../router/router';
@@ -11,7 +11,7 @@ import { screenNames } from '../router/router';
 
 const { width, height } = Dimensions.get('screen');
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
     const phoneInput = useRef(null);
 
     const [value, setValue] = useState("");
@@ -19,7 +19,7 @@ const Login = ({navigation}) => {
     const [valid, setValid] = useState(false);
     //verificetiondata
     const [verificationId, setVerificationID] = useState(null);
-  
+
 
     // console.log(showMessage,'hdhhhdh')
     // console.log(value)
@@ -40,43 +40,45 @@ const Login = ({navigation}) => {
     const otpdata = useCallback(async () => {
         console.log('started')
         try {
-          
+
             const data = await auth().signInWithPhoneNumber(formattedValue, true)
 
             // console.log(data, "enna varum")
             setVerificationID(data);
-          
+
             console.log("ended")
 
         } catch (e) {
             console.log(e)
         }
-      
+
     }, [formattedValue])
 
 
-    const verifyotp =useCallback(async()=>{
+    const verifyotp = useCallback(async () => {
         try {
-            
+
             const response = await verificationId.confirm(otp);
             navigation.replace(screenNames.Newuser)
-            console.log(response,'verified')
+            console.log(response, 'verified')
         } catch (e) {
             console.log(e)
         }
-    
-    },[verificationId,otp])
 
+    }, [verificationId, otp])
+
+
+  
 
 
 
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            {/* <ImageBackground
+            <ImageBackground
                 source={images.bg} // Replace with your image path
                 style={{ flex: 1 }}
-            > */}
+            >
             <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
 
                 <View style={{ backgroundColor: 'white', padding: 16, height: height / 1.8, borderRadius: 20, marginTop: '100%' }}>
@@ -109,17 +111,17 @@ const Login = ({navigation}) => {
                     <View>
                         {!valid ? <Text style={{ color: 'red', marginLeft: '25%', marginTop: '2%' }}>Enter the 10 digit valid number </Text> : null}
 
-                         {
-                            verificationId ? 
-                            
-                        <TextInput
-                            style={styles.input}
-                            keyboardType='number-pad'
-                            maxLength={6} // Limiting input to 6 characters
-                            onChangeText={setOtp}
-                            value={otp}
-                            placeholder="Enter OTP"
-                        />   : null }
+                        {
+                            verificationId ?
+
+                                <TextInput
+                                    style={styles.input}
+                                    keyboardType='number-pad'
+                                    maxLength={6} // Limiting input to 6 characters
+                                    onChangeText={setOtp}
+                                    value={otp}
+                                    placeholder="Enter OTP"
+                                /> : null}
 
 
                     </View>
@@ -135,17 +137,14 @@ const Login = ({navigation}) => {
                             }} onPressOut={valid ? otpdata : null}  >
                                 <Text style={styles.continuebuttton} >continue</Text>
                             </TouchableOpacity>}
-
-
-
-
                     </View>
 
-
                 </View>
+                
+                  
 
             </View>
-            {/* </ImageBackground> */}
+            </ImageBackground>
         </SafeAreaView>
 
     )

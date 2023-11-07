@@ -1,19 +1,21 @@
 import {
   StyleSheet, Text, View,
-  ImageBackground, 
-  SafeAreaView, Dimensions,Image,
+  ImageBackground,
+  SafeAreaView, Dimensions, Image,
   TouchableOpacity
 } from 'react-native'
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import auth from '@react-native-firebase/auth'
-// import * as images from '../assests/images'
+import * as images from '../assests/images'
 
 import { screenNames } from '../router/router'
+import Googlesign from './Googlesign'
 
 
-const {width, height} = Dimensions.get('screen')
 
-const Splashscreen = ({navigation}) => {
+const { width, height } = Dimensions.get('screen')
+
+const Splashscreen = ({ navigation }) => {
 
   const [isNavigated, setIsNavigated] = useState(false);
 
@@ -33,50 +35,55 @@ const Splashscreen = ({navigation}) => {
     };
   }, [isNavigated, navigation]);
 
+  const navigateToGscreen = () => {
+    navigation.navigate(screenNames.Googlesign)
+   
+  }
+
 
   return (
-    
-      <SafeAreaView style={styles.container}>
 
-        <View >
-          {/* <ImageBackground source={images.bg} style={{ width, height, position: 'absolute' }} /> */}
-          <View style={{ marginTop: '100%', marginHorizontal: '5%' }}>
-            <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-              {/* <Image
+    <SafeAreaView style={styles.container}>
+
+      <View >
+        {/* <ImageBackground source={images.bg} style={{ width, height, position: 'absolute' }} /> */}
+        <View style={{ marginTop: '100%', marginHorizontal: '5%' }}>
+          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+            {/* <Image
                 style={{}}
                 source={images.Subtract}
               /> */}
-              {/* <Text style={styles.text1}>ant</Text> */}
-              {/* <Text style={{ borderWidth: 1, borderRadius: 10, width: '35%', color: '#FFFf', textAlign: 'center', marginLeft: 5, backgroundColor: 'gray', fontSize: 15 }}>FOR SELLERS</Text> */}
-            </View>
-            <View style={{ width: '100%' }}>
-              {/* <Text style={{ color: 'white', marginVertical: '5%' }}>sign in and begin efficiently managing your business while on the move!</Text> */}
-              <View style={styles.loginbuttons}>
+            {/* <Text style={styles.text1}>ant</Text> */}
+            {/* <Text style={{ borderWidth: 1, borderRadius: 10, width: '35%', color: '#FFFf', textAlign: 'center', marginLeft: 5, backgroundColor: 'gray', fontSize: 15 }}>FOR SELLERS</Text> */}
+          </View>
+          <View style={{ width: '100%' }}>
+            {/* <Text style={{ color: 'white', marginVertical: '5%' }}>sign in and begin efficiently managing your business while on the move!</Text> */}
+            <View style={styles.loginbuttons}>
 
-                <TouchableOpacity style={styles.phonenumber} onPress={()=>navigation.navigate('Login')}>
-                    <Text style={{textAlign:'center',color:'#ffff'}}>Continue With Phone Number</Text>
-                </TouchableOpacity>
+              <TouchableOpacity style={styles.phonenumber} onPress={() => navigation.navigate('Login')}>
+                <Text style={{ textAlign: 'center', color: '#ffff' }}>Continue With Phone Number</Text>
+              </TouchableOpacity>
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: '10%' }}>
-                  <View style={{ borderBottomWidth: 1, width: '45%' }}></View>
-                  {/* <Text style={{ borderWidth: 1, borderRadius: 10, width: '10%', textAlign: 'center', color: '#ffff', backgroundColor: 'grey' }}>Or</Text> */}
-                  <View style={{ borderBottomWidth: 1, width: '45%' }}></View>
+              <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: '10%' }}>
+                <View style={{ borderBottomWidth: 1, width: '45%' }}></View>
+                {/* <Text style={{ borderWidth: 1, borderRadius: 10, width: '10%', textAlign: 'center', color: '#ffff', backgroundColor: 'grey' }}>Or</Text> */}
+                <View style={{ borderBottomWidth: 1, width: '45%' }}></View>
+              </View>
+
+
+              <TouchableOpacity onPress={navigateToGscreen}>
+                <View style={styles.Authbutton}>
+                  <Image
+                    style={{}}
+                    source={images.google}
+                  />
+                  <Text style={{ color: '#ffff', marginLeft: '20%' }}  >Continue With Google</Text>
+
                 </View>
+              </TouchableOpacity>
 
 
-                {/* <TouchableOpacity>
-                  <View style={styles.Authbutton}>
-                    <Image
-                      style={{}}
-                      source={images.google}
-                    />
-                    <Text style={{ color: '#ffff', marginLeft: '20%' }}  >Continue With Google</Text>
-
-                  </View>
-                </TouchableOpacity> */}
-
-
-                {/* <TouchableOpacity>
+              {/* <TouchableOpacity>
                   <View style={styles.Authbutton}>
                     <Image
                       style={{}}
@@ -87,17 +94,18 @@ const Splashscreen = ({navigation}) => {
                   </View>
                 </TouchableOpacity> */}
 
-              </View>
-            </View>
-
-
-
+            </View> 
+            {/* <Googlesign check={navigateToGscreen}/> */}
           </View>
 
-       
+
+
         </View>
-      </SafeAreaView>
-    
+
+
+      </View>
+    </SafeAreaView>
+
 
 
 
@@ -116,10 +124,10 @@ const styles = StyleSheet.create({
   text1: {
     color: '#ffff',
     fontSize: 48,
-    fontWeight:'700',
-    paddingLeft:'2%'
-   
-    
+    fontWeight: '700',
+    paddingLeft: '2%'
+
+
   },
   loginbuttons: {
     // backgroundColor:'#3b5998' ,
@@ -144,11 +152,12 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderRadius: 5,
     borderWidth: 1,
-    paddingVertical: 12,
+    paddingVertical: 10,
     paddingHorizontal: 12,
-    textAlign:'center',
-    
+    textAlign: 'center',
+    backgroundColor: '#9038FF',
+
     // borderColor:'#ffff',
-    
+
   }
 })
